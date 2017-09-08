@@ -21,7 +21,7 @@ dc.dataCount('#count-info')
              .center([0,0])
              .zoom(0)
              .geojson(vargeodata)
-             .colors(['#f7fcb9',"#ffe6e3","#e85945", "#911200", '#730d00'])
+             .colors(['#DDDDDD',"#ffe6e3","#e85945", "#911200", '#730d00'])
              .colorDomain([0,4])
              .colorAccessor(function (d){
               var c = 0
@@ -83,11 +83,12 @@ datatabGraph
                 }
 
                                    ])
-        .sortBy(function (d) {
+        /*.sortBy(function (d) {
             return [d.COUNTRY, d.ADMIN1, d.RISK, d.Food_Insecurity_Probability, d.Physical_exposure_to_flood, d.Land_Degradation, d.Droughts_impact, d.Hazard_2017];
             // return d[config.whoFieldName];
-        });
+        });*/
 //dataTable 2
+
 dataTab2
         .size(400)
         .dimension(mapDimension)
