@@ -47,3 +47,8 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
  }
+ 
+.dc-table-column {
+    font-size:0.75em;
+    color:#7F7F7F;
+ }
