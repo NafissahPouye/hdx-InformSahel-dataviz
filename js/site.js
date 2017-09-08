@@ -21,7 +21,7 @@ dc.dataCount('#count-info')
              .center([0,0])
              .zoom(0)
              .geojson(vargeodata)
-             .colors(['#f7fcb9','#CCCCCC','#DF0101','#A52A2A','#800000'])
+             .colors(['#f7fcb9',"#ffe6e3","#e85945", "#911200", '#730d00'])
              .colorDomain([0,4])
              .colorAccessor(function (d){
               var c = 0
@@ -89,7 +89,7 @@ datatabGraph
         });
 //dataTable 2
 dataTab2
-        .size(650)
+        .size(400)
         .dimension(mapDimension)
         .group(function (d) {
             return d.mapGroup;
