@@ -3,7 +3,7 @@ function generateringComponent(vardata, vargeodata){
   var lookup = genLookup(vargeodata) ;
 
   var Imap = dc.leafletChoroplethChart('#MapInform');
-  var datatabGraph = dc.dataTable('#dataTable1');
+  var dataTab1 = dc.dataTable('#dataTable1');
   var dataTab2 = dc.dataTable('#dataTable2');
   var cf = crossfilter(vardata) ;
   var all = cf.groupAll();
@@ -50,8 +50,8 @@ dc.dataCount('#count-info')
                 'fillOpacity': 0.1,
                 'weight': 1
             });
-     //datatable
-datatabGraph
+//dataTable 1
+dataTab1
         .size(400)
         .dimension(mapDimension)
         .group(function (d) {
