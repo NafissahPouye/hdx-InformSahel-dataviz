@@ -13,7 +13,8 @@
 
 
 #MapInform{
-    height:450px;
+    height:400px;
+    width:1200px;
 }
 
 #header{
@@ -50,16 +51,27 @@
 
  #dataTable1 {
     margin-left: 30px;
-    padding-right: 10px;
+   /* padding-right: 10px;*/
     border: 1px;
 }
 
 #dataTable2 {
     margin-left: 30px;
-    padding-right: 10px;
+   /* padding-right: 10px;*/
     border: 1px;
 }
 .dc-table-column {
     font-size:0.80em;
     color:#7F7F7F;
  }
+
+ .dc-table-label {
+    background-color:#cccccc;
+
+ }
+ .dc-chart tbody tr.dc-table-group {
+    color: transparent;
+ }
+ 
+    
+ 
