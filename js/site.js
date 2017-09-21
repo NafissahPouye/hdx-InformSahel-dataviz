@@ -3,8 +3,8 @@ function generateringComponent(vardata, vargeodata){
   var lookup = genLookup(vargeodata) ;
 
   var Imap = dc.leafletChoroplethChart('#MapInform');
-  var dataTab1 = dc.dataTable('#dataTable1');
-  var dataTab2 = dc.dataTable('#dataTable2');
+  var dataTab1 = dc.dataTable('#dataTable2');
+  var dataTab2 = dc.dataTable('#dataTable1');
   var cf = crossfilter(vardata) ;
   var all = cf.groupAll();
   var mapDimension = cf.dimension(function(d) { return d.rowcacode1});
@@ -51,9 +51,9 @@ dc.dataCount('#count-info')
                 'weight': 1
             });
 
-//dataTable 1
+//dataTable 2016
 dataTab2
-        .size(400)
+        .size(600)
         .dimension(mapDimension)
         .group(function (d) {
             return d.mapGroup;
@@ -119,11 +119,9 @@ dataTab2
                 return d.Malnutrition;
                 },
                 function (d) {
-                return d.Malnutrition;
-                },
-                function (d) {
                 return d.Recent_Shocks;
                 },
+                
                 function (d) {
                 return d.Food_Security;
                 },
@@ -159,22 +157,25 @@ dataTab2
                 },
                 function (d) {
                 return d.LACK_OF_COPING_CAPACITY;
+                },
+                 function (d) {
+                return d.RISK;
                 }
 
-                                               ])
+                                               ]);
 
-         dataTab1.renderlet(function (chart) {
+         /*dataTab1.renderlet(function (chart) {
                     chart.selectAll("g.x text")
                         .style("text-anchor", "end")
                         //.attr('dx', '0')
                       
                         .attr('transform', "rotate(-85)");
-                })
+                })*/
 
 
 //dataTable 2
 dataTab1
-        .size(400)
+        .size(600)
         .dimension(mapDimension)
         .group(function (d) {
             return d.mapGroup;
@@ -238,13 +239,10 @@ dataTab1
                 return d.Children_U5_2016;
                 },
                 function (d) {
-                return d.Malnutrition_2016;
+                return d.Recent_shocks_2016;
                 },
                 function (d) {
                 return d.Malnutrition_2016;
-                },
-                function (d) {
-                return d.Recent_Shocks_2016;
                 },
                 function (d) {
                 return d.Food_Security_2016;
@@ -281,13 +279,13 @@ dataTab1
                 },
                 function (d) {
                 return d.LACK_OF_COPING_CAPACITY_2016;
+                },
+                function (d) {
+                return d.RISK_2016;
                 }
 ])
       
-      .sortBy(function (d) {                                         
-      return [d.COUNTRY, d.ADMIN1, d.Food_Insecurity_Probability_2016]; 
-       }); 
-
+      
       dc.renderAll();
 
       var map = Imap.map();
@@ -310,7 +308,6 @@ dataTab1
 var dataCall = $.ajax({
     type: 'GET',
     url: 'data/InformData2.json',
-    //url: 'data/InformData1.json',
     dataType: 'json',
 });
 
