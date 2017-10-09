@@ -72,6 +72,19 @@
  .dc-chart tbody tr.dc-table-group {
     color: transparent;
  }
- 
+ #dataTab1 {
+    overflow-y: auto;
+    height: 400px;
+}
+
+.table.table-condensed thead tr th {
+    font-size: 14px;
+    color: #999999;
+}
+
+.table.table-condensed tr td {
+    font-size: 12px;
+    color: #4d4d4d;
+}
     
  

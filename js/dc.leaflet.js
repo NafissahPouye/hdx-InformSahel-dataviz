@@ -14,10 +14,11 @@ dc.leafletChart = function (_chart) {
     };
 
     var _tiles = function (map) {
-        L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+       /*L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+        }).addTo(map);*/
     };
+
 
     _chart.createLeaflet = function(_) {
         if(!arguments.length) {

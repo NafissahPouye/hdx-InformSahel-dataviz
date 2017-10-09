@@ -51,6 +51,8 @@ dc.dataCount('#count-info')
                 'weight': 1
             });
 
+
+
 //dataTable 2016
 dataTab2
         .size(600)
@@ -161,7 +163,6 @@ dataTab2
                  function (d) {
                 return d.RISK;
                 }
-
                                                ]);
 
          /*dataTab1.renderlet(function (chart) {
@@ -284,7 +285,9 @@ dataTab1
                 return d.RISK_2016;
                 }
 ])
-      
+     Winheight = $(window).height();
+     $("#MapInform").css("height",((Winheight/2)+46)) 
+     $("#MapInform").css("background-color","#FFFFFF");
       
       dc.renderAll();
 
@@ -293,8 +296,13 @@ dataTab1
       zoomToGeom(vargeodata);
       function zoomToGeom(geodata){
         var bounds = d3.geo.bounds(geodata) ;
-        map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]]);
+        map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]])
+            .setZoom(4.8);
       }
+     /* L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/traffic-day-v2/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYW1hZG91MTciLCJhIjoib3NhRnROQSJ9.lW0PVXVIS-j8dGaULTyupg', {
+    attribution: '<a href="http://mapbox.com">Mapbox</a>'
+}).addTo(map);
+*/
 
       function genLookup(geojson) {
         var lookup = {} ;
