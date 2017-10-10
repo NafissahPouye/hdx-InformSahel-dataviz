@@ -14,9 +14,9 @@ dc.leafletChart = function (_chart) {
     };
 
     var _tiles = function (map) {
-       /*L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);*/
+       L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/traffic-day-v2/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYW1hZG91MTciLCJhIjoib3NhRnROQSJ9.lW0PVXVIS-j8dGaULTyupg', {
+    attribution: '<a href="http://mapbox.com">Mapbox</a>'
+}).addTo(map);
     };
 
 

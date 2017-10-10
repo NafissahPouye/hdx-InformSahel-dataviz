@@ -18,6 +18,8 @@ dc.dataCount('#count-info')
              .height(400)
              .dimension(mapDimension)
              .group(mapGroup)
+             .label(function (p) { return p.key; })
+             .renderTitle(true)
              .center([0,0])
              .zoom(0)
              .geojson(vargeodata)
@@ -50,12 +52,17 @@ dc.dataCount('#count-info')
                 'fillOpacity': 0.1,
                 'weight': 1
             });
+//begin test
+    
 
 
+    //end test
 
 //dataTable 2016
 dataTab2
-        .size(600)
+        .size(300)
+        .width(200)
+        .height(100)
         .dimension(mapDimension)
         .group(function (d) {
             return d.mapGroup;
@@ -123,7 +130,6 @@ dataTab2
                 function (d) {
                 return d.Recent_Shocks;
                 },
-                
                 function (d) {
                 return d.Food_Security;
                 },
@@ -165,14 +171,13 @@ dataTab2
                 }
                                                ]);
 
-         /*dataTab1.renderlet(function (chart) {
-                    chart.selectAll("g.x text")
-                        .style("text-anchor", "end")
+         dataTab1.renderlet(function (chart) {
+                    chart.selectAll('#dataTable1')
+                       // .style("text-anchor", "end")
                         //.attr('dx', '0')
                       
                         .attr('transform', "rotate(-85)");
-                })*/
-
+                });
 
 //dataTable 2
 dataTab1
@@ -181,6 +186,7 @@ dataTab1
         .group(function (d) {
             return d.mapGroup;
         })
+
         //.title(2017)
         .columns([
                     function (d) {
@@ -240,11 +246,12 @@ dataTab1
                 return d.Children_U5_2016;
                 },
                 function (d) {
-                return d.Recent_shocks_2016;
-                },
-                function (d) {
                 return d.Malnutrition_2016;
                 },
+                function (d) {
+                return d.Recent_Shocks_2016;
+                },
+                
                 function (d) {
                 return d.Food_Security_2016;
                 },
@@ -286,7 +293,7 @@ dataTab1
                 }
 ])
      Winheight = $(window).height();
-     $("#MapInform").css("height",((Winheight/2)+46)) 
+     $("#MapInform").css("height",((Winheight/2)+83));
      $("#MapInform").css("background-color","#FFFFFF");
       
       dc.renderAll();
@@ -297,12 +304,27 @@ dataTab1
       function zoomToGeom(geodata){
         var bounds = d3.geo.bounds(geodata) ;
         map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]])
-            .setZoom(4.8);
+            .setZoom(5)
+            .setView([9.52, 10.37], 4);
       }
-     /* L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/traffic-day-v2/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYW1hZG91MTciLCJhIjoib3NhRnROQSJ9.lW0PVXVIS-j8dGaULTyupg', {
-    attribution: '<a href="http://mapbox.com">Mapbox</a>'
-}).addTo(map);
-*/
+     var legend = L.control({position: 'topright'});
+
+    legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            labels = ['75 - 90','90 - 110','110 - 150 ','150+', "200"];
+            colors =['#DDDDDD','#ffe6e3','#e85945', '#911200', '#730d00'];
+
+        div.innerHTML = '<br />Légende<br />';
+        for (var i = 0; i < labels.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + colors[i] + '"></i> ' + labels[4-i] +'<br />';
+
+        }
+
+        return div;
+    };
+     
 
       function genLookup(geojson) {
         var lookup = {} ;
