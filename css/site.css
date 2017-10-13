@@ -13,16 +13,17 @@
 
 
 #MapInform{
-    height:455px;
-    width:1200px;
+    height:602px;
+    width:1180px;
+    margin-left: 55px;
 }
 
 #header{
-    padding-bottom:20px;
+    /*padding-bottom:20px;*/
     border-bottom-color: #dddddd;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    margin-bottom:20px;
+    margin-bottom:5px;
 }
 
 #footer{
@@ -62,7 +63,8 @@
 }
 .dc-table-column {
     font-size:0.80em;
-    color:#7F7F7F;
+    color: #000000;
+    padding:5;
  }
 
  /*.dc-table-label {
@@ -84,12 +86,9 @@
     height: 1px;
 
  }*/
- /*#dataTable1 th{
-  vertical-align = middle;
-  writing-mode: tb-rl;
-  filter: flipv fliph;
-  white-space: nowrap;
-
+ #dataTable1 th{
+  font-size:0.2em;
+  color:  #FEFEFE;
 }
 */
  #dataTab1 {
@@ -107,4 +106,8 @@
     color: #999999;
 }
     
- 
+#reset {
+  float:right;
+  margin-right: 45px;
+  margin-bottom: 10px;
+}

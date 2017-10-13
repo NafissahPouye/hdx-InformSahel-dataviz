@@ -15,7 +15,7 @@
         <script src="js/topojson.v1.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="https://openlayers.org/en/v4.1.1/build/ol.js"></script>
-        <script src="https://mapbox.github.io/geojson-vt/geojson-vt-dev.js"></script>
+        <!-- <script src="https://mapbox.github.io/geojson-vt/geojson-vt-dev.js"></script> -->
         <script src="js/dc.leaflet.js"></script>
 
     </head>
@@ -23,189 +23,185 @@
       <div class="container-fluid" id='main-container'>
         <div class='content'>
           <div class='container'>
-          	<div class="row">
-              <div class="col-md-12">
-                <h3> Inform Sahel </h3>
-              </div>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-4">
+                <img src="image.png" >  
+                </div>
+                <div class="col-md-8" style="text-align: justify;">
+                    Ut enim quisque sibi plurimum confidit et ut quisque maxime virtute et sapientia sicmunitus est, ut nullo egeat suaque omnia in se ipso posita iudicet, ita in amicitiis expetendis colendisque maxime excellit. Quid enim? Africanus indigens mei? Minime hercule! ac ne ego quidem illius; sed ego admiratione quadam virtutis eius, ille vicissim opinione fortasse non nulla, quam de meis moribus habebat, me dilexit; auxit benevolentiam consuetudo. Sed quamquam utilitates multae et magnae consecutae sunt.
+                </div>
             </div>
-            <div id="header" class="row">
-              <div class="col-md-8">
-                <h3> </h3>
+        <div id="header" class="row"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            <a class="reset btn btn-primary btn-sm" id="reset" href="javascript:dc.filterAll();dc.redrawAll();">Reset All</a> 
             </div>
-            <div class="col-md-6">
-              <a class="reset btn btn-primary btn-sm" id="reset" href="javascript:dc.filterAll();dc.redrawAll();">Reset All</a> 
-            </div> 
-          </div>
-          <div class="row">
-            <h4> Risk Map </h4>
-            <div class="col-md-12" id="MapInform"></div>
-          </div>
-          </div>
-          </div>
-          <p>&nbsp;</p> 
-          <div class="row">
-          <div class="col-md-12">
-               
-              
-                <table class="table table-hover" id="dataTable1"> 
+        </div>
+         <div class="row"> 
+                <div class="col-md-12" id="MapInform"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-hover" id="dataTable1" cellpadding="1"> 
                     <colgroup>
-                         <col style="background-color:#FFFFFF;"/> 
-                         <col style="background-color:#FFFFFF;"/>  
-                         <col style="background-color:#ffd699;"/>
-                         <col style="background-color:#ffd699;"/>
-                         <col style="background-color:#ffd699;"/>
-                         <col style="background-color:#ffd699;"/> 
+                         <col style="background-color:#AFAFAF;"/> 
+                         <col style="background-color:#AFAFAF;"/>  
+                         <col style="background-color:#FDE6D7;"/>
+                         <col style="background-color:#FDE6D7;"/>
+                         <col style="background-color:#FDE6D7;"/>
+                         <col style="background-color:#FDE6D7;"/> 
                          <col style="background-color:#ffad33;"/>
                          <col style="background-color:#ffd699;"/> 
                          <col style="background-color:#ffd699;"/>
                          <col style="background-color:#ffd699;"/>  
-                         <col style="background-color:#ffad33;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#005c99;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#007acc;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#f9ffe6;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#bbbb77;"/>
+                         <col style="background-color:#F59181;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#678fcb;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#c4d2b0;"/>
                          <col style="background-color:#cccc99;"/>
-                         <col style="background-color:#e85945;"/>
+                         <col style="background-color:#fe5a43", text="black";/>
                      </colgroup>
-                      <thead> <h4> &nbsp;  2016 INFORM</h4>
+                      <thead> <strong><h5> &nbsp; INFORM Sahel 2017</strong></h5>
                           <tr class="header">  
-                            <th><font size=1>Country<font></th> 
-                            <th><font size=1>Admin 1<font></th>
-                            <th><font size=1>Food Insecurity Probability</th>
-                            <th><font size=1>Physical Exposure to flood</th>
-                            <th><font size=1>Land Degradation</th>
-                            <th><font size=1>Droughts probability and historical impact</th>
-                            <th><font size=1>Natural</th>
-                            <th><font size=1>Political violence</th>
-                            <th><font size=1>Conflict probability</th>
-                            <th><font size=1>Human</th>
-                            <th><font size=1>HAZARD</th>
-                            <th><font size=1>Development & <br> Deprivation</th>
-                            <th><font size=1>Inequality</th>
-                            <th><font size=1>Aid Dependency</th>
-                            <th><font size=1>Socio-Economic <br> Vulnerability</th>
-                            <th><font size=1>Uprooted people</th>
-                            <th><font size=1>Health Conditions</th>
-                            <th><font size=1>Children U5</th>
-                            <th><font size=1>Malnutrition</th>
-                            <th><font size=1>Recent Shocks</th>
-                            <th><font size=1>Food Security</th>
-                            <th><font size=1>Other Vulnerable Groups</th>
-                            <th><font size=1>Vulnerable Groups</th>
-                            <th><font size=1>VULNERABILITY</th>
-                            <th><font size=1>DRR</th>
-                            <th><font size=1>Governance</th>
-                            <th><font size=1>Institutional</th>
-                            <th><font size=1>Communication</th>
-                            <th><font size=1>Physical infrastructure</th>
-                            <th><font size=1>Access to health care</th>
-                            <th><font size=1>Infrastructure</th>
-                            <th><font size=1>Lake OF COPING CAPACITY</th>
-                            <th><font size=1>RISK</th>
+                            <th><font size=1><font color="black">Country</font></th> 
+                            <th><font size=1><font color="black">Admin 1<font></th>
+                            <th><font size=1><font color="orange">Food Insecurity Probability</th>
+                            <th><font size=1><font color="orange">Physical Exposure to flood</th>
+                            <th><font size=1><font color="orange">Land Degradation</th>
+                            <th><font size=1><font color="orange">Droughts probability and historical impact</th>
+                            <th><font size=1><font color="#921301">Natural</th>
+                            <th><font size=1><font color="orange">Political violence</th>
+                            <th><font size=1><font color="orange">Conflict probability</th>
+                            <th><font size=1><font color="orange">Human</th>
+                            <th><font size=1><font color="#921301">HAZARD</th>
+                            <th><font size=1><font color="blue">Development & <br> Deprivation</th>
+                            <th><font size=1><font color="blue">Inequality</th>
+                            <th><font size=1><font color="blue">Aid Dependency</th>
+                            <th><font size=1><font color="orange">Socio-Economic <br> Vulnerability</th>
+                            <th><font size=1><font color="blue">Uprooted people</th>
+                            <th><font size=1><font color="blue">Health Conditions</th>
+                            <th><font size=1><font color="blue">Children U5</th>
+                            <th><font size=1><font color="blue">Malnutrition</th>
+                            <th><font size=1><font color="blue">Recent Shocks</th>
+                            <th><font size=1><font color="blue">Food Security</th>
+                            <th><font size=1><font color="blue">Other Vulnerable Groups</th>
+                            <th><font size=1><font color="orange">Vulnerable Groups</th>
+                            <th><font size=1><font color="blue">VULNERABILITY</th>
+                            <th><font size=1><font color="green">DRR</th>
+                            <th><font size=1><font color="green">Governance</th>
+                            <th><font size=1><font color="orange">Institutional</th>
+                            <th><font size=1><font color="green">Communication</th>
+                            <th><font size=1><font color="green">Physical infrastructure</th>
+                            <th><font size=1><font color="green">Access to health care</th>
+                            <th><font size=1><font color="orange">Infrastructure</th>
+                            <th><font size=1><font color="green">LACK OF COPING CAPACITY</th>
+                            <th><font size=1><font color="brown">RISK</th>
                             
                         </tr>
                     </thead>
                 </table>
             </div>
-            <p>&nbsp;</p>
-           
-             <div class="row">
-              <div class="col-md-12">
-                  
-                          
-                 <table class="table table-hover" id="dataTable2"> 
-                   
-                       <colgroup>
-                         <col style="background-color:#FFFFFF;"/> 
-                         <col style="background-color:#FFFFFF;"/>  
-                         <col style="background-color:#ffd699;"/>
-                         <col style="background-color:#ffd699;"/>
-                         <col style="background-color:#ffd699;"/>
-                         <col style="background-color:#ffd699;"/> 
+
+             <div class="col-md-12">
+                 <table class="table table-hover" id="dataTable2" cellpadding="1"> 
+                    <colgroup>
+                         <col style="background-color:#AFAFAF;"/> 
+                         <col style="background-color:#AFAFAF;"/>  
+                         <col style="background-color:#FDE6D7;"/>
+                         <col style="background-color:#FDE6D7;"/>
+                         <col style="background-color:#FDE6D7;"/>
+                         <col style="background-color:#FDE6D7;"/> 
                          <col style="background-color:#ffad33;"/>
                          <col style="background-color:#ffd699;"/> 
                          <col style="background-color:#ffd699;"/>
                          <col style="background-color:#ffd699;"/>  
-                         <col style="background-color:#ffad33;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#005c99;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#b3e0ff;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#99d6ff;"/>
-                         <col style="background-color:#007acc;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#f9ffe6;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#ecffb3;"/>
-                         <col style="background-color:#bbbb77;"/>
+                         <col style="background-color:#F59181;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#678fcb;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#ccdaee;"/>
+                         <col style="background-color:#9ab5dc;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#ebef81;"/>
+                         <col style="background-color:#c4d2b0;"/>
                          <col style="background-color:#cccc99;"/>
-                         <col style="background-color:#e85945;"/>
+                         <col style="background-color:#fe5a43", text="black";/>
                      </colgroup>
-                      <thead> <h4> &nbsp;  2016 INFORM</h4>
+                      <thead> <h5><strong> &nbsp; INFORM Sahel 2016</strong></h5>
                           <tr class="header">  
-                            <th><font size=1>Country<font></th> 
-                            <th><font size=1>Admin 1<font></th>
-                            <th><font size=1>Food Insecurity Probability</th>
-                            <th><font size=1>Physical Exposure to flood</th>
-                            <th><font size=1>Land Degradation</th>
-                            <th><font size=1>Droughts probability and historical impact</th>
-                            <th><font size=1>Natural</th>
-                            <th><font size=1>Political violence</th>
-                            <th><font size=1>Conflict probability</th>
-                            <th><font size=1>Human</th>
-                            <th><font size=1>HAZARD</th>
-                            <th><font size=1>Development & <br> Deprivation</th>
-                            <th><font size=1>Inequality</th>
-                            <th><font size=1>Aid Dependency</th>
-                            <th><font size=1>Socio-Economic <br> Vulnerability</th>
-                            <th><font size=1>Uprooted people</th>
-                            <th><font size=1>Health Conditions</th>
-                            <th><font size=1>Children U5</th>
-                            <th><font size=1>Malnutrition</th>
-                            <th><font size=1>Recent Shocks</th>
-                            <th><font size=1>Food Security</th>
-                            <th><font size=1>Other Vulnerable Groups</th>
-                            <th><font size=1>Vulnerable Groups</th>
-                            <th><font size=1>VULNERABILITY</th>
-                            <th><font size=1>DRR</th>
-                            <th><font size=1>Governance</th>
-                            <th><font size=1>Institutional</th>
-                            <th><font size=1>Communication</th>
-                            <th><font size=1>Physical infrastructure</th>
-                            <th><font size=1>Access to health care</th>
-                            <th><font size=1>Infrastructure</th>
-                            <th><font size=1>Lake OF COPING CAPACITY</th>
-                            <th><font size=1>RISK</th>
+                            <th><font size=1><font color="black">Country</font></th> 
+                            <th><font size=1><font color="black">Admin 1<font></th>
+                            <th><font size=1><font color="orange">Food Insecurity Probability</th>
+                            <th><font size=1><font color="orange">Physical Exposure to flood</th>
+                            <th><font size=1><font color="orange">Land Degradation</th>
+                            <th><font size=1><font color="orange">Droughts probability and historical impact</th>
+                            <th><font size=1><font color="#921301">Natural</th>
+                            <th><font size=1><font color="orange">Political violence</th>
+                            <th><font size=1><font color="orange">Conflict probability</th>
+                            <th><font size=1><font color="orange">Human</th>
+                            <th><font size=1><font color="#921301">HAZARD</th>
+                            <th><font size=1><font color="blue">Development &<br>Deprivation</th>
+                            <th><font size=1><font color="blue">Inequality</th>
+                            <th><font size=1><font color="blue">Aid Dependency</th>
+                            <th><font size=1><font color="orange">Socio-Economic <br> Vulnerability</th>
+                            <th><font size=1><font color="blue">Uprooted people</th>
+                            <th><font size=1><font color="blue">Health Conditions</th>
+                            <th><font size=1><font color="blue">Children U5</th>
+                            <th><font size=1><font color="blue">Malnutrition</th>
+                            <th><font size=1><font color="blue">Recent Shocks</th>
+                            <th><font size=1><font color="blue">Food Security</th>
+                            <th><font size=1><font color="blue">Other Vulnerable Groups</th>
+                            <th><font size=1><font color="orange">Vulnerable Groups</th>
+                            <th><font size=1><font color="blue">VULNERABILITY</th>
+                            <th><font size=1><font color="green">DRR</th>
+                            <th><font size=1><font color="green">Governance</th>
+                            <th><font size=1><font color="orange">Institutional</th>
+                            <th><font size=1><font color="green">Communication</th>
+                            <th><font size=1><font color="green">Physical infrastructure</th>
+                            <th><font size=1><font color="green">Access to health care</th>
+                            <th><font size=1><font color="orange">Infrastructure</th>
+                            <th><font size=1><font color="green">LACK OF COPING CAPACITY</th>
+                            <th><font size=1><font color="brown">RISK</th>
                             
                         </tr>
                     </thead>
                 </table>
             </div>
+
+        </div>
+        <!-- fin contqiner -->
+        </div>
+        </div>
       <script src="js/site.js"></script>
-  </body>
-  </html>
+    </body>
+</html>

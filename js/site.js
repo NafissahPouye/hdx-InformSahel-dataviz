@@ -3,8 +3,8 @@ function generateringComponent(vardata, vargeodata){
   var lookup = genLookup(vargeodata) ;
 
   var Imap = dc.leafletChoroplethChart('#MapInform');
-  var dataTab1 = dc.dataTable('#dataTable2');
-  var dataTab2 = dc.dataTable('#dataTable1');
+  var dataTab1 = dc.dataTable('#dataTable1');
+  var dataTab2 = dc.dataTable('#dataTable2');
   var cf = crossfilter(vardata) ;
   var all = cf.groupAll();
   var mapDimension = cf.dimension(function(d) { return d.rowcacode1});
@@ -23,16 +23,18 @@ dc.dataCount('#count-info')
              .center([0,0])
              .zoom(0)
              .geojson(vargeodata)
-             .colors(['#DDDDDD','#ffe6e3','#e85945', '#911200', '#730d00'])
+             .colors(['#DDDDDD','#FFC8BF','#F59181', '#FE5A43', '#921301', '#620D00'])
              .colorDomain([0,4])
              .colorAccessor(function (d){
               var c = 0
-               if (d>6) {
-                 c = 4;
-               } else if (d>5) {
-                    c = 3;
-               } else if (d>3){
-                  c = 2;
+               if (d>6.7) {
+                 c = 5;
+               } else if (d>5.7) {
+                    c = 4;
+               } else if (d>4.8){
+                  c = 3;
+              } else if (d>3.8) {
+                c = 2;
               } else if (d>0) {
                 c = 1;
               }
@@ -298,14 +300,17 @@ dataTab1
       
       dc.renderAll();
 
-      var map = Imap.map();
+      var map = Imap.map({ 
+        maxZoom: 5,
+        minZoom: 3
+      });
 
       zoomToGeom(vargeodata);
       function zoomToGeom(geodata){
         var bounds = d3.geo.bounds(geodata) ;
         map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]])
             .setZoom(5)
-            .setView([9.52, 10.37], 4);
+            .setView([9, 10.37], 4);
       }
      var legend = L.control({position: 'topright'});
 
