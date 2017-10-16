@@ -54,17 +54,12 @@ dc.dataCount('#count-info')
                 'fillOpacity': 0.1,
                 'weight': 1
             });
-//begin test
-    
-
-
-    //end test
 
 //dataTable 2016
 dataTab2
-        .size(300)
-        .width(200)
-        .height(100)
+        .size(600)
+        .width(50)
+        //.height(100)
         .dimension(mapDimension)
         .group(function (d) {
             return d.mapGroup;
@@ -183,7 +178,9 @@ dataTab2
 
 //dataTable 2
 dataTab1
-        .size(600)
+        .size(100)
+        //.height(50)
+        .width(10)
         .dimension(mapDimension)
         .group(function (d) {
             return d.mapGroup;
@@ -301,8 +298,8 @@ dataTab1
       dc.renderAll();
 
       var map = Imap.map({ 
-        maxZoom: 5,
-        minZoom: 3
+        /*maxZoom: 5,
+        minZoom: 3*/
       });
 
       zoomToGeom(vargeodata);
@@ -310,7 +307,7 @@ dataTab1
         var bounds = d3.geo.bounds(geodata) ;
         map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]])
             .setZoom(5)
-            .setView([9, 10.37], 4);
+            .setView([9.80, 10.37], 4);
       }
      var legend = L.control({position: 'topright'});
 

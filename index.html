@@ -15,7 +15,6 @@
         <script src="js/topojson.v1.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="https://openlayers.org/en/v4.1.1/build/ol.js"></script>
-        <!-- <script src="https://mapbox.github.io/geojson-vt/geojson-vt-dev.js"></script> -->
         <script src="js/dc.leaflet.js"></script>
 
     </head>
@@ -32,18 +31,16 @@
                 </div>
             </div>
         <div id="header" class="row"></div>
-        </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" ></div>
             <a class="reset btn btn-primary btn-sm" id="reset" href="javascript:dc.filterAll();dc.redrawAll();">Reset All</a> 
             </div>
-        </div>
          <div class="row"> 
                 <div class="col-md-12" id="MapInform"></div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-hover" id="dataTable1" cellpadding="1"> 
+        <div class="col-md-12" >
+            <!-- <div class="col-md-12"> -->
+                <table class="table table-hover" id="dataTable1"> 
                     <colgroup>
                          <col style="background-color:#AFAFAF;"/> 
                          <col style="background-color:#AFAFAF;"/>  
@@ -95,7 +92,7 @@
                             <th><font size=1><font color="blue">Development & <br> Deprivation</th>
                             <th><font size=1><font color="blue">Inequality</th>
                             <th><font size=1><font color="blue">Aid Dependency</th>
-                            <th><font size=1><font color="orange">Socio-Economic <br> Vulnerability</th>
+                            <th><font size=1><font color="blue">Socio-Economic <br> Vulnerability</th>
                             <th><font size=1><font color="blue">Uprooted people</th>
                             <th><font size=1><font color="blue">Health Conditions</th>
                             <th><font size=1><font color="blue">Children U5</th>
@@ -103,24 +100,24 @@
                             <th><font size=1><font color="blue">Recent Shocks</th>
                             <th><font size=1><font color="blue">Food Security</th>
                             <th><font size=1><font color="blue">Other Vulnerable Groups</th>
-                            <th><font size=1><font color="orange">Vulnerable Groups</th>
+                            <th><font size=1><font color="blue">Vulnerable Groups</th>
                             <th><font size=1><font color="blue">VULNERABILITY</th>
                             <th><font size=1><font color="green">DRR</th>
                             <th><font size=1><font color="green">Governance</th>
-                            <th><font size=1><font color="orange">Institutional</th>
-                            <th><font size=1><font color="green">Communication</th>
+                            <th><font size=1><font color="green">Institutional</th>
+                            <th><font size=1><font color="orange">Communication</th>
                             <th><font size=1><font color="green">Physical infrastructure</th>
                             <th><font size=1><font color="green">Access to health care</th>
-                            <th><font size=1><font color="orange">Infrastructure</th>
+                            <th><font size=1><font color="green">Infrastructure</th>
                             <th><font size=1><font color="green">LACK OF COPING CAPACITY</th>
                             <th><font size=1><font color="brown">RISK</th>
                             
                         </tr>
                     </thead>
                 </table>
-            </div>
+        </div>
 
-             <div class="col-md-12">
+             <!-- <div class="col-md-12"> -->
                  <table class="table table-hover" id="dataTable2" cellpadding="1"> 
                     <colgroup>
                          <col style="background-color:#AFAFAF;"/> 
@@ -173,7 +170,7 @@
                             <th><font size=1><font color="blue">Development &<br>Deprivation</th>
                             <th><font size=1><font color="blue">Inequality</th>
                             <th><font size=1><font color="blue">Aid Dependency</th>
-                            <th><font size=1><font color="orange">Socio-Economic <br> Vulnerability</th>
+                            <th><font size=1><font color="blue">Socio-Economic <br> Vulnerability</th>
                             <th><font size=1><font color="blue">Uprooted people</th>
                             <th><font size=1><font color="blue">Health Conditions</th>
                             <th><font size=1><font color="blue">Children U5</th>
@@ -181,11 +178,11 @@
                             <th><font size=1><font color="blue">Recent Shocks</th>
                             <th><font size=1><font color="blue">Food Security</th>
                             <th><font size=1><font color="blue">Other Vulnerable Groups</th>
-                            <th><font size=1><font color="orange">Vulnerable Groups</th>
+                            <th><font size=1><font color="blue">Vulnerable Groups</th>
                             <th><font size=1><font color="blue">VULNERABILITY</th>
                             <th><font size=1><font color="green">DRR</th>
                             <th><font size=1><font color="green">Governance</th>
-                            <th><font size=1><font color="orange">Institutional</th>
+                            <th><font size=1><font color="green">Institutional</th>
                             <th><font size=1><font color="green">Communication</th>
                             <th><font size=1><font color="green">Physical infrastructure</th>
                             <th><font size=1><font color="green">Access to health care</th>
@@ -196,11 +193,12 @@
                         </tr>
                     </thead>
                 </table>
-            </div>
+            <!-- </div> -->
+        <!-- fin du row des data tables -->
+        <!-- </div> -->
+        <!-- fin container -->
+        </div>
 
-        </div>
-        <!-- fin contqiner -->
-        </div>
         </div>
       <script src="js/site.js"></script>
     </body>

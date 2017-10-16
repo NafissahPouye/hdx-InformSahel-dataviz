@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title> Inform Sahel viz</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" ype="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+        <link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
+        <link rel="stylesheet" type="text/css" href="css/site.css"/>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/d3.min.js"></script>
+        <script src="js/crossfilter.v1.min.js"></script>
+        <script src="js/dc.min.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/topojson.v1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="https://openlayers.org/en/v4.1.1/build/ol.js"></script>
+        <script src="js/dc.leaflet.js"></script>
+
+    </head>
+    <body>
+      <div class="container-fluid" id='main-container'>
+        <div class='content'>
+          <div class='container'>
+            <div class="row" style="padding-top: 10px;">
+                <div class="col-md-4">
+                <img src="image.png" >  
+                </div>
+                <div class="col-md-8" style="text-align: justify;">
+                    Ut enim quisque sibi plurimum confidit et ut quisque maxime virtute et sapientia sicmunitus est, ut nullo egeat suaque omnia in se ipso posita iudicet, ita in amicitiis expetendis colendisque maxime excellit. Quid enim? Africanus indigens mei? Minime hercule! ac ne ego quidem illius; sed ego admiratione quadam virtutis eius, ille vicissim opinione fortasse non nulla, quam de meis moribus habebat, me dilexit; auxit benevolentiam consuetudo. Sed quamquam utilitates multae et magnae consecutae sunt.
+                </div>
+            </div>
+        <div id="header" class="row"></div>
+        <div class="row">
+            <div class="col-md-12" ></div>
+            <a class="reset btn btn-primary btn-sm" id="reset" href="javascript:dc.filterAll();dc.redrawAll();">Reset All</a> 
+            </div>
+         <div class="row"> 
+                <div class="col-md-12" id="MapInform"></div>
+        </div>
+        <!-- <div class="row"> -->
+        <div class="row">
+            
+        </div>
+        <!-- fin du row des data tables -->
+        <!-- </div> -->
+        <!-- fin container -->
+        </div>
+
+        </div>
+      <script src="js/site.js"></script>
+    </body>
+</html>
