@@ -58,7 +58,7 @@ dc.dataCount('#count-info')
 //dataTable 2016
 dataTab2
         .size(600)
-        .width(50)
+       // .width(50)
         //.height(100)
         .dimension(mapDimension)
         .group(function (d) {
@@ -178,9 +178,9 @@ dataTab2
 
 //dataTable 2
 dataTab1
-        .size(100)
+        .size(600)
         //.height(50)
-        .width(10)
+       // .width(10)
         .dimension(mapDimension)
         .group(function (d) {
             return d.mapGroup;
