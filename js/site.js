@@ -1,7 +1,6 @@
 function generateringComponent(vardata, vargeodata){
 
   var lookup = genLookup(vargeodata) ;
-
   var Imap = dc.leafletChoroplethChart('#MapInform');
   var dataTab1 = dc.dataTable('#dataTable1');
   var dataTab2 = dc.dataTable('#dataTable2');
@@ -13,6 +12,8 @@ function generateringComponent(vardata, vargeodata){
 dc.dataCount('#count-info')
   .dimension(cf)
   .group(all);
+
+  // var geom = topojson.feature("data/sahel-topo.json");
 
          Imap.width(400)
              .height(400)
@@ -41,7 +42,7 @@ dc.dataCount('#count-info')
                return c
 
     })
-               .featureKeyAccessor(function (feature){
+              .featureKeyAccessor(function (feature){
                return feature.properties['rowcacode1'];
              }).popup(function (d){
                return d.properties['ADM1_NAME'];
@@ -49,11 +50,32 @@ dc.dataCount('#count-info')
              .renderPopup(true)
              .featureOptions({
                 'fillColor': 'gray',
-                'color': 'gray',
-                'opacity':0.8,
-                'fillOpacity': 0.1,
+                'color': 'green',
+                'opacity':0.1,
+                'fillOpacity': 0.9,
                 'weight': 1
             });
+//test
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        //click: zoomToFeature
+    });
+
+    if (feature.properties) {
+        layer.bindPopup('<h4>' + feature.properties.name + '</h4><h5><a target="_blank" href="' + feature.properties + '"> View dataset on HDX </a></h5>');
+    }
+    
+};
+function style(feature) {
+       return {
+            fillColor: '#FF493D',
+            weight: 2,
+            opacity: 0.6,
+            color: 'red',
+            fillOpacity: 0.5
+        }};
 
 //dataTable 2016
 dataTab2
@@ -292,7 +314,7 @@ dataTab1
                 }
 ])
      Winheight = $(window).height();
-     $("#MapInform").css("height",((Winheight/2)+83));
+    // $("#MapInform").css("height",((Winheight/2)+83));
      $("#MapInform").css("background-color","#FFFFFF");
       
       dc.renderAll();

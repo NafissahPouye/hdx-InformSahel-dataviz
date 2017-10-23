@@ -9,28 +9,14 @@ dc.leafletChart = function (_chart) {
     var _defaultCenter = false;
     var _defaultZoom = false;
 
-    var _createLeaflet = function(root) {
-        return L.map(root.node(),_mapOptions);
-    };
-
     var _tiles = function (map) {
-       L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/traffic-day-v2/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYW1hZG91MTciLCJhIjoib3NhRnROQSJ9.lW0PVXVIS-j8dGaULTyupg', {
-    attribution: '<a href="http://mapbox.com">Mapbox</a>'
-}).addTo(map);
+        /*L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);*/
     };
 
-
-    _chart.createLeaflet = function(_) {
-        if(!arguments.length) {
-            return _createLeaflet;
-        }
-        _createLeaflet = _;
-        return _chart;
-    };
-
-    _chart._doRender = function (map) {
-
-        _map = _createLeaflet(_chart.root());
+    _chart._doRender = function () {
+        _map = L.map(_chart.root().node(), _mapOptions);
         if (_defaultCenter && _defaultZoom) {
             _map.setView(_chart.toLocArray(_defaultCenter), _defaultZoom);
         }
@@ -615,20 +601,20 @@ dc.leafletChoroplethChart = function (parent, chartGroup) {
     var _renderPopup = true;
     var _brushOn = true;
     var _featureOptions = {
-        'fillColor': 'black',
-        'color': 'gray',
-        'opacity':0,
+        'fillColor': 'white',
+        'color': 'black',
+        'opacity':1,
         'fillOpacity': 0,
-        'weight': 1
+        'weight': 2
     };
 
     var _featureKey = function (feature) {
         return feature.key;
     };
-
+    
     function isSelectedGeo(d) {
         return _chart.hasFilter(d.key);
-    }
+    }    
 
     var _featureStyle = function (feature) {
         var options = _chart.featureOptions();
@@ -642,17 +628,23 @@ dc.leafletChoroplethChart = function (parent, chartGroup) {
                 if (isSelectedGeo(v.d)) {
                     options.fillColor = _chart.getColor(v.d.value, v.i);
                     options.opacity = 1;
-                    options.fillOpacity = 0.5;
+                    options.fillOpacity = 0.8;
+                    options.color = 'white';
+                    options.weight = 2;                                                 
                 } else {
                     options.fillColor = _chart.getColor(0, v.i);
                     options.opacity = 1;
-                    options.fillOpacity = 0.5;
+                    options.fillOpacity = 0.8;
+                    options.color = 'white';
+                    options.weight = 2;                                                      
                 }
             } else {
                 options.fillColor = _chart.getColor(v.d.value, v.i);
                 options.opacity = 1;
-                options.fillOpacity = 0.5;
-            }
+                options.fillOpacity = 0.8;
+                options.color = 'white';
+                options.weight = 2;                                   
+            }           
         }
         return options;
     };
@@ -681,7 +673,6 @@ dc.leafletChoroplethChart = function (parent, chartGroup) {
             };
 
         _info.addTo(_chart.map());
-
         _chart.map().addLayer(_geojsonLayer);
     };
 
@@ -699,14 +690,6 @@ dc.leafletChoroplethChart = function (parent, chartGroup) {
             return _geojson;
         }
         _geojson = _;
-        return _chart;
-    };
-
-    _chart.geojsonLayer = function (_) {
-        if (!arguments.length) {
-            return _geojsonLayer;
-        }
-        _geojsonLayer = _;
         return _chart;
     };
 
@@ -770,12 +753,12 @@ dc.leafletChoroplethChart = function (parent, chartGroup) {
                 });
                 layer.on("mouseout",function(){
                     _info.update();
-                });
+                });   
         if (v && v.d) {
             layer.key = v.d.key;
-            if (_chart.renderPopup()) {
+            if (_chart.renderPopup()) {             
                 //layer.bindPopup(_chart.popup()(v.d, feature));
-
+             
             }
             if (_chart.brushOn()) {
                 layer.on("click", selectFilter);
