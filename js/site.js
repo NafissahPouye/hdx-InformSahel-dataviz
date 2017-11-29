@@ -1,34 +1,31 @@
 function generateringComponent(vardata, vargeodata){
-
-  var lookup = genLookup(vargeodata) ;
-  var Imap = dc.leafletChoroplethChart('#MapInform');
-  var dataTab1 = dc.dataTable('#dataTable1');
-  var dataTab2 = dc.dataTable('#dataTable2');
-  var cf = crossfilter(vardata) ;
-  var all = cf.groupAll();
-  var mapDimension = cf.dimension(function(d) { return d.rowcacode1});
-  var mapGroup = mapDimension.group().reduceSum(function(d){ return d.RISK});
+var lookup = genLookup(vargeodata) ;
+var Imap = dc.leafletChoroplethChart('#MapInform');
+var dataTab1 = dc.dataTable('#dataTable2');
+var dataTab2 = dc.dataTable('#dataTable1');
+var cf = crossfilter(vardata) ;
+var all = cf.groupAll();
+var mapDimension = cf.dimension(function(d) { return d.rowcacode1});
+var mapGroup = mapDimension.group().reduceSum(function(d){ return d.RISK});
 
 dc.dataCount('#count-info')
   .dimension(cf)
   .group(all);
-
-  // var geom = topojson.feature("data/sahel-topo.json");
-
-         Imap.width(400)
-             .height(400)
-             .dimension(mapDimension)
-             .group(mapGroup)
-             .label(function (p) { return p.key; })
-             .renderTitle(true)
-             .center([0,0])
-             .zoom(0)
-             .geojson(vargeodata)
-             .colors(['#DDDDDD','#FFC8BF','#F59181', '#FE5A43', '#921301', '#620D00'])
-             .colorDomain([0,4])
-             .colorAccessor(function (d){
-              var c = 0
-               if (d>6.7) {
+  
+   Imap.width(200)
+       .height(400)
+       .dimension(mapDimension)
+       .group(mapGroup)
+       .label(function (p) { return p.key; })
+       .renderTitle(true)
+       .center([0,0])
+       .zoom(0)
+       .geojson(vargeodata)
+       .colors(['#DDDDDD','#FFC8BF','#F59181', '#FE5A43', '#921301', '#620D00'])
+       .colorDomain([0,4])
+       .colorAccessor(function (d){
+        var c = 0
+           if (d>6.7) {
                  c = 5;
                } else if (d>5.7) {
                     c = 4;
@@ -40,48 +37,50 @@ dc.dataCount('#count-info')
                 c = 1;
               }
                return c
-
-    })
-              .featureKeyAccessor(function (feature){
-               return feature.properties['rowcacode1'];
-             }).popup(function (d){
-               return d.properties['ADM1_NAME'];
-             })
-             .renderPopup(true)
-             .featureOptions({
-                'fillColor': 'gray',
-                'color': 'green',
-                'opacity':0.1,
-                'fillOpacity': 0.9,
-                'weight': 1
-            });
-//test
-function onEachFeature(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        //click: zoomToFeature
-    });
-
-    if (feature.properties) {
-        layer.bindPopup('<h4>' + feature.properties.name + '</h4><h5><a target="_blank" href="' + feature.properties + '"> View dataset on HDX </a></h5>');
-    }
-    
-};
+        })
+       .featureKeyAccessor(function (feature){
+          return feature.properties['rowcacode1'];
+          }).popup(function (d){
+          return '<h4>'+ d.properties['country_name']+ ', '+d.properties['ADM1_NAME'] +'</h4> '+'Risk';
+       })
+          
+        .renderPopup(true);
+//begin test
 function style(feature) {
-       return {
-            fillColor: '#FF493D',
-            weight: 2,
-            opacity: 0.6,
-            color: 'red',
-            fillOpacity: 0.5
-        }};
+    if (feature.properties['rowcacode1']) 
+        return {
 
+            fillColor:'#f03b20',
+            weight: 4,
+            opacity: 0.9,
+            color: '#f03b20',
+            fillOpacity: 0.9
+        };
+ }      
+ //begin test
+     var legend = L.control({position: 'topleft'});
+
+    legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            labels = ['75 - 90','90 - 110','110 - 150 ','150+'];
+            colors =['#31a354','#addd8e','#f7fcb9','#ffeda0'];
+
+        div.innerHTML = '<br />Légende<br />';
+        for (var i = 0; i < labels.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + colors[i] + '"></i> ' + labels[3-i] +'<br />';
+        }
+        return div;
+    };
+
+
+    //end test 
+//end test
+         
 //dataTable 2016
-dataTab2
+  dataTab2
         .size(600)
-       // .width(50)
-        //.height(100)
         .dimension(mapDimension)
         .group(function (d) {
             return d.mapGroup;
@@ -188,36 +187,24 @@ dataTab2
                  function (d) {
                 return d.RISK;
                 }
-                                               ]);
+         ]);
 
-         dataTab1.renderlet(function (chart) {
-                    chart.selectAll('#dataTable1')
-                       // .style("text-anchor", "end")
-                        //.attr('dx', '0')
-                      
-                        .attr('transform', "rotate(-85)");
-                });
-
+    
 //dataTable 2
 dataTab1
         .size(600)
-        //.height(50)
-       // .width(10)
         .dimension(mapDimension)
         .group(function (d) {
             return d.mapGroup;
         })
-
-        //.title(2017)
         .columns([
                     function (d) {
                 return d.COUNTRY;
                 },
-
                     function (d) {
                 return d.ADMIN1;
                 },
-                        
+                 
                   function (d) {
                 return d.Food_Insecurity_Probability_2016;
                 },
@@ -314,7 +301,6 @@ dataTab1
                 }
 ])
      Winheight = $(window).height();
-    // $("#MapInform").css("height",((Winheight/2)+83));
      $("#MapInform").css("background-color","#FFFFFF");
       
       dc.renderAll();
@@ -331,25 +317,23 @@ dataTab1
             .setZoom(5)
             .setView([9.80, 10.37], 4);
       }
-     var legend = L.control({position: 'topright'});
+    
+ var legend = L.control({position: 'topright'});
 
     legend.onAdd = function (map) {
 
         var div = L.DomUtil.create('div', 'info legend'),
-            labels = ['75 - 90','90 - 110','110 - 150 ','150+', "200"];
-            colors =['#DDDDDD','#ffe6e3','#e85945', '#911200', '#730d00'];
+            labels = ['75 - 90','90 - 110','110 - 150 ','150+'];
+            colors =['#31a354','#addd8e','#f7fcb9','#ffeda0'];
 
         div.innerHTML = '<br />Légende<br />';
         for (var i = 0; i < labels.length; i++) {
             div.innerHTML +=
-                '<i style="background:' + colors[i] + '"></i> ' + labels[4-i] +'<br />';
-
+                '<i style="background:' + colors[i] + '"></i> ' + labels[3-i] +'<br />';
         }
-
         return div;
     };
      
-
       function genLookup(geojson) {
         var lookup = {} ;
         geojson.features.forEach(function (e) {
@@ -370,7 +354,6 @@ var geomCall = $.ajax({
     url: 'data/sahel.geojson',
     dataType: 'json',
 });
-
 
 $.when(dataCall, geomCall).then(function(dataArgs, geomArgs){
     var geom = geomArgs[0];

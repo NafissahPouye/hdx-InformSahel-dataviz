@@ -106,7 +106,8 @@
 	clear: both;
 	}
 .leaflet-right .leaflet-control {
-	float: right;
+	/*float: right;*/
+	float:left;
 	}
 .leaflet-top .leaflet-control {
 	margin-top: 10px;

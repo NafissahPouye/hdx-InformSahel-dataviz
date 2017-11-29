@@ -10,10 +10,11 @@ dc.leafletChart = function (_chart) {
     var _defaultZoom = false;
 
     var _tiles = function (map) {
-        /*L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+       /*L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);*/
     };
+
 
     _chart._doRender = function () {
         _map = L.map(_chart.root().node(), _mapOptions);
