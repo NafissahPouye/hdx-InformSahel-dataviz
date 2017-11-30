@@ -17,7 +17,6 @@
         <script src="js/bootstrap.js"></script>
         <script src="https://openlayers.org/en/v4.1.1/build/ol.js"></script>
         <script src="js/dc.leaflet.js"></script>
-
     </head>
     <body>
       <div class="container-fluid" id='main-container'>
@@ -38,7 +37,14 @@
             </div>
          <div class="row"> 
                 <div class="col-md-12" id="MapInform"></div>
-        </div>
+                <ul class="legend">
+    <li><span class="verylow"></span>Very Low</li>
+    <li><span class="Low"></span>Low</li>
+    <li><span class="Medium"></span>Medium</li>
+    <li><span class="High"></span>High</li>
+    <li><span class="VeryHigh"></span>Very High</li>
+    </ul>
+        </div> <br>
         <div class="col-md-12" >
             <!-- <div class="col-md-12"> -->
                 <table class="table table-hover" id="dataTable1"> 
@@ -193,10 +199,11 @@
                         </tr>
                     </thead>
                 </table>
+                <div id="note">   *Empty cell means data is not available</div>
             <!-- </div> -->
         <!-- fin du row des data tables -->
         </div>
-        <div id="note">   *Empty grid means data is not available</div>
+        
         <!-- fin container -->
         </div>
 
