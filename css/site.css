@@ -41,8 +41,8 @@
     margin-left: 2px;
     padding-left: 0px;
     border: 1px;
-    /*overflow-x: scroll;
-    height: 100px;
+    overflow: auto;
+    /*height: 100px;
     width: 100px;*/
 }
 
