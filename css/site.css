@@ -51,9 +51,9 @@
    /* padding-right: 10px;*/
     border: 1px;
     padding-left: 0px;
-    /*overflow-x: scroll;
-    height: 100px;
-    width: 100px;*/
+    overflow: auto;
+    /*height: 100px;
+    width: 100px;*/*/
 
 }
 .dc-table-column {
@@ -81,6 +81,7 @@
  #dataTable1 th{
   font-size:0.2em;
   color:  #FEFEFE;
+  overflow: auto;
 }
 
 .table.table-condensed thead tr th {
