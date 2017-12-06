@@ -362,3 +362,4 @@ $.when(dataCall, geomCall).then(function(dataArgs, geomArgs){
     });
     generateringComponent(dataArgs[0],geom);
 });
+// testing
