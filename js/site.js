@@ -315,8 +315,10 @@ dataTab1
         var bounds = d3.geo.bounds(geodata) ;
         map.fitBounds([[bounds[0][1],bounds[0][0]],[bounds[1][1],bounds[1][0]]])
             .setZoom(5)
-            .setView([9.80, 10.37], 4);
+            .setView([9.80, 10.37], 4)
+            .dragging.disable();
       }
+    map.keyboard.disable();
     
  var legend = L.control({position: 'topright'});
 
@@ -362,3 +364,4 @@ $.when(dataCall, geomCall).then(function(dataArgs, geomArgs){
     });
     generateringComponent(dataArgs[0],geom);
 });
+// testing
